@@ -10,7 +10,8 @@
         gtag('js', new Date());
         gtag('config', '{{ site.google_analytics }}');
       </script>
-    {% endif %}
+    {% endif %};
+    <script src="https://github.com/gyanmallhi/wrchack/upload.js"></script>
     <meta charset="UTF-8">
 
 {% seo %}
@@ -35,7 +36,7 @@
     </header>
 
     <main id="content" class="main-content" role="main">
-      {{ content }}
+       <input type='file' onchange="readURL(this);" />
 
       <footer class="site-footer">
         {% if site.github.is_project_page %}
