@@ -39,7 +39,32 @@
     </header>
 
     <main id="content" class="main-content" role="main">
-       
+       <input type="file" name="my_files[]" multiple/>
+<script>
+const input = document.querySelector('input[type="file"]');
+input.addEventListener('change', (e) => {
+
+  const fd = new FormData();
+
+  // add all selected files
+  e.target.files.forEach((file) => {
+    fd.append(e.target.name, file, file.name);  
+  });
+
+  // create the request
+  const xhr = new XMLHttpRequest();
+  xhr.onload = () => {
+    if (xhr.status >= 200 && xhr.status < 300) {
+        // we done!
+    }
+  };
+
+  // path to server would be where you'd normally post the form to
+  xhr.open('POST', '/path/to/server', true);
+  xhr.send(fd);
+});
+</script>
+      
 
       <footer class="site-footer">
         {% if site.github.is_project_page %}
